@@ -1,62 +1,45 @@
 import React, { Component } from 'react';
 import './Navagation.css';
-import API from '../../utils/API';
-
 
 class Navagation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       scrollingLock: false,
+      windowHeight: window.innerHeight,
     };
-    // example how to bind object in React ES6
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
-// window.onscroll = function() {myFunction()};
-
-// // Get the navbar
-// var navbar = document.getElementById("navbar");
-
-// // Get the offset position of the navbar
-// var sticky = navbar.offsetTop;
-
-// // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-// function myFunction() {
-//   if (window.pageYOffset >= sticky) {
-//     navbar.classList.add("sticky")
-//   } else {
-//     navbar.classList.remove("sticky");
-//   }
-// }
-
-  componentDidMount(){
+  componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    console.log(window);
+    window.addEventListener('resize', this.handleResize);
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
+  handleResize() {
+    this.setState({ windowHeight: window.innerHeight });
+  }
+
   handleScroll() {
-    console.log(window.scrollY);
-    if (window.scrollY > 800) {
-      console.log("should lock");
+    if (window.scrollY > this.state.windowHeight) {
       this.setState({
-        scrollingLock: true
+        scrollingLock: true,
       });
-    } else if (window.scrollY < 800) {
-      console.log("not locked");
+    } else if (window.scrollY < this.state.windowHeight) {
       this.setState({
-        scrollingLock: false
+        scrollingLock: false,
       });
     }
   }
 
   render() {
     return (
-      <nav style={{ width: "100%", position: this.state.scrollingLock ? "fixed" : "relative"}}>
+      <nav style={{ width: '100%', position: this.state.scrollingLock ? 'fixed' : 'relative' }}>
         {this.props.children}
         <div id="navbar" ref={this.navbar}>
           <a href="#home">Home</a>
