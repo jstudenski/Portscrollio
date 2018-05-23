@@ -39,12 +39,14 @@ class Navagation extends React.Component {
 
   render() {
     return (
-      <nav style={{ width: '100%', position: this.state.scrollingLock ? 'fixed' : 'relative' }}>
+      <nav style={{position: this.state.scrollingLock ? 'fixed' : 'relative' }}>
         {this.props.children}
         <div id="navbar" ref={this.navbar}>
-          <a href="#home">Home</a>
-          <a href="#news">News</a>
-          <a href="#contact">Contact</a>
+          <ul id="test">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </div>
       </nav>
     );
