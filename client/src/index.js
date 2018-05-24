@@ -6,6 +6,7 @@ import 'normalize.css';
 import registerServiceWorker from './registerServiceWorker';
 import App from './containers/App';
 import './index.css';
+import './normalize.css';
 
 ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();
