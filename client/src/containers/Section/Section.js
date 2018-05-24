@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Section.css';
 import API from '../../utils/API';
+import ScrollTo from 'react-scroll-into-view'
 
 class Section extends Component {
   // state = {
@@ -18,10 +19,14 @@ class Section extends Component {
   //     .catch(err => console.log(err));
   // };
 
+  // <div className="ttt" id={`section${3}`}>
+  // </div>
+
   render() {
       return (
-        <section style={{background : this.props.background}}>
+        <section style={{background : this.props.background}} id={this.props.name}>
           {this.props.children}
+          <p>{this.props.name}</p>
         </section>
       )
     }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Navagation.css';
+import ScrollTo from 'react-scroll-into-view'
 
 class Navagation extends React.Component {
   constructor(props) {
@@ -42,10 +43,11 @@ class Navagation extends React.Component {
       <nav style={{position: this.state.scrollingLock ? 'fixed' : 'relative' }}>
         {this.props.children}
         <div id="navbar" ref={this.navbar}>
-          <ul id="test">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <ul>
+            <li><ScrollTo selector={`#about`}>About</ScrollTo></li>
+            <li><ScrollTo selector={`#skills`}>Skills</ScrollTo></li>
+            <li><ScrollTo selector={`#portfolio`}>Portfolio</ScrollTo></li>
+            <li><ScrollTo selector={`#contact`}>Contact</ScrollTo></li>
           </ul>
         </div>
       </nav>
