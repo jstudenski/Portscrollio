@@ -19,7 +19,7 @@ class App extends Component {
       <div className="App">
         <Section background="#FF5445"></Section>
         <Navagation/>
-        <Section background="#F0F0F0"><h1>Hello</h1></Section>
+        <Section background="#F0F0F0" ref="one"></Section>
         <Section background="#1C86EA"></Section>
         <Section background="#F9B887"></Section>
       </div>
