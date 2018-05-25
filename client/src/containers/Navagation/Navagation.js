@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Navagation.css';
-import ScrollTo from 'react-scroll-into-view'
+import ScrollTo from 'react-scroll-into-view';
 
 class Navagation extends React.Component {
   constructor(props) {
@@ -8,6 +8,12 @@ class Navagation extends React.Component {
     this.state = {
       scrollingLock: false,
       windowHeight: window.innerHeight,
+      links: [
+        { selector: '#about', text: 'About' },
+        { selector: '#skills', text: 'Skills' },
+        { selector: '#portfolio', text: 'Portfolio' },
+        { selector: '#contact', text: 'Contact' },
+      ],
     };
     this.handleScroll = this.handleScroll.bind(this);
     this.handleResize = this.handleResize.bind(this);
@@ -27,6 +33,9 @@ class Navagation extends React.Component {
   }
 
   handleScroll() {
+    const vPos = window.innerHeight;
+    console.log(vPos);
+
     if (window.scrollY > this.state.windowHeight) {
       this.setState({
         scrollingLock: true,
@@ -40,14 +49,15 @@ class Navagation extends React.Component {
 
   render() {
     return (
-      <nav style={{position: this.state.scrollingLock ? 'fixed' : 'relative' }}>
+      <nav style={{ position: this.state.scrollingLock ? 'fixed' : 'relative' }}>
         {this.props.children}
         <div id="navbar" ref={this.navbar}>
           <ul>
-            <li><ScrollTo selector={`#about`}>About</ScrollTo></li>
-            <li><ScrollTo selector={`#skills`}>Skills</ScrollTo></li>
-            <li><ScrollTo selector={`#portfolio`}>Portfolio</ScrollTo></li>
-            <li><ScrollTo selector={`#contact`}>Contact</ScrollTo></li>
+            {this.state.links.map(link => (
+              <li>
+                <ScrollTo selector={link.selector}>{link.text}</ScrollTo>
+              </li>
+            ))}
           </ul>
         </div>
       </nav>
