@@ -68,9 +68,37 @@ class Navagation extends React.Component {
       // console.log("offsetTop", node.offsetTop);
       // console.log("scrollTop", node.scrollTop);
       // console.log("scrollTop", node.scrollTop);
-      let midPoint = node.getBoundingClientRect().top + (node.getBoundingClientRect().height/2) + window.scrollY;
-      link.midPoint = midPoint
+      const mp = node.getBoundingClientRect().top + (node.getBoundingClientRect().height / 2) + window.scrollY;
+      link.midPoint = mp;
 
+      let wh = this.state.windowHeight;
+     //  let mp = link.midPoint
+      switch (true) {
+        case (mp > wh * 4):
+          link.color = '#fff';
+          break;
+        case (mp > wh * 3):
+          link.color = '#D027A5';
+          break;
+        case (mp > wh * 2):
+          link.color = 'lime';
+          break;
+        default:
+          link.color = 'orange';
+          break;
+      }
+
+
+      // if (link.midPoint > this.state.windowHeight * 2) {
+      //   link.color = '#1283b9';
+      //   // console.log(link.text);
+      // } else if (link.midPoint > this.state.windowHeight * 3) {
+      //   link.color = '#D027A5';
+      // }
+
+    //  #D027A5
+
+      // console.log(this.state.windowHeight);
     }
   }
 
@@ -81,9 +109,9 @@ class Navagation extends React.Component {
         {this.props.children}
         <div id="navbar" ref={this.navbar}>
           <ul>
-            {this.state.links.map((link) => (
-              <li ref={(node) => this.calculateMidpoint(node, link)} > 
-                <ScrollTo selector={link.selector}>{link.text} {link.midPoint}</ScrollTo>
+            {this.state.links.map(link => (
+              <li ref={node => this.calculateMidpoint(node, link)} style={{ color: link.color }}>
+                <ScrollTo selector={link.selector}>{link.text}</ScrollTo>
               </li>
             ))}
           </ul>
