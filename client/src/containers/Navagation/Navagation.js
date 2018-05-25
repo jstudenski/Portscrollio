@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Navagation.css';
 import ScrollTo from 'react-scroll-into-view';
-import { SIGTERM } from 'constants';
 
 class Navagation extends React.Component {
   constructor(props) {
@@ -26,7 +25,6 @@ class Navagation extends React.Component {
     window.addEventListener('resize', this.handleResize);
 
     console.log(this.state.links[0].text);
-
   }
 
   componentWillUnmount() {
@@ -35,18 +33,15 @@ class Navagation extends React.Component {
 
   handleResize() {
     this.setState({ windowHeight: window.innerHeight });
-   // console.log('hello');
-
-    console.log(window);
-    this.state.links.forEach(function (item, index) {
-     console.log(item); // index
-    // item.setState({ midPoint: '1' });
-    item.midPoint = '1';
-   //   console.log(sandwich); // value
-    });
-
-
-
+    // console.log(this.state.windowHeight)
+    // console.log('hello');
+    // console.log(window);
+    //   this.state.links.forEach(function (item, index) {
+    //    console.log(item); // index
+    //   // item.setState({ midPoint: '1' });
+    //   item.midPoint = '1';
+    //  //   console.log(sandwich); // value
+    //   });
   }
 
   getLinkMidpoint() {
@@ -68,6 +63,19 @@ class Navagation extends React.Component {
     }
   }
 
+  calcHeight(node, link) {
+    if (node) {
+      // console.log("innerHeight", window.innerHeight);
+      // console.log("offsetTop", node.offsetTop);
+      // console.log("scrollTop", node.scrollTop);
+      // console.log("scrollTop", node.scrollTop);
+      let midPoint =node.getBoundingClientRect().top + (node.getBoundingClientRect().height/2) + window.scrollY // window.scrollY // node.getBoundingClientRect().top + window.scrollY // + (node.getBoundingClientRect().height/2) - window.scrollY
+      link.midPoint = midPoint
+      // console.log("calcHeight", node.getBoundingClientRect());
+    }
+  }
+
+
   render() {
     return (
       <nav style={{ position: this.state.scrollingLock ? 'fixed' : 'relative' }}>
@@ -75,8 +83,8 @@ class Navagation extends React.Component {
         <div id="navbar" ref={this.navbar}>
           <ul>
             {this.state.links.map((link) => (
-              <li ref={(node) => this.calcHeight(node)} > 
-                <ScrollTo selector={link.selector}>{link.text}</ScrollTo>
+              <li ref={(node) => this.calcHeight(node, link)} > 
+                <ScrollTo selector={link.selector}>{link.text} {link.midPoint}</ScrollTo>
               </li>
             ))}
           </ul>
@@ -84,14 +92,6 @@ class Navagation extends React.Component {
       </nav>
     );
   }
-
-  calcHeight(node){
-    if (node) {
-        console.log("calcHeight", node.getBoundingClientRect());
-      }
-  }
-
-  
 }
 
 // onClick={this.changeContent.bind(this)}
