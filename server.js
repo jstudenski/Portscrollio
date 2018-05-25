@@ -18,8 +18,7 @@ app.use(routes);
 // mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/starterDB');
 
 app.get('*', function (req, res) {
-  const index = path.join(__dirname, 'build', 'index.html');
-  res.sendFile(index);
+  res.sendFile(path.join(__dirname, 'public', 'views', 'index.html'));
 });
 
 // Start the API server
