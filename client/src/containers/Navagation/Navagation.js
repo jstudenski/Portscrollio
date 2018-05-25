@@ -33,15 +33,6 @@ class Navagation extends React.Component {
 
   handleResize() {
     this.setState({ windowHeight: window.innerHeight });
-    // console.log(this.state.windowHeight)
-    // console.log('hello');
-    // console.log(window);
-    //   this.state.links.forEach(function (item, index) {
-    //    console.log(item); // index
-    //   // item.setState({ midPoint: '1' });
-    //   item.midPoint = '1';
-    //  //   console.log(sandwich); // value
-    //   });
   }
 
   getLinkMidpoint() {
@@ -68,11 +59,11 @@ class Navagation extends React.Component {
       // console.log("offsetTop", node.offsetTop);
       // console.log("scrollTop", node.scrollTop);
       // console.log("scrollTop", node.scrollTop);
+
       const mp = node.getBoundingClientRect().top + (node.getBoundingClientRect().height / 2) + window.scrollY;
       link.midPoint = mp;
 
-      let wh = this.state.windowHeight;
-     //  let mp = link.midPoint
+      const wh = this.state.windowHeight;
       switch (true) {
         case (mp > wh * 4):
           link.color = '#fff';
@@ -88,17 +79,6 @@ class Navagation extends React.Component {
           break;
       }
 
-
-      // if (link.midPoint > this.state.windowHeight * 2) {
-      //   link.color = '#1283b9';
-      //   // console.log(link.text);
-      // } else if (link.midPoint > this.state.windowHeight * 3) {
-      //   link.color = '#D027A5';
-      // }
-
-    //  #D027A5
-
-      // console.log(this.state.windowHeight);
     }
   }
 

@@ -7,17 +7,16 @@ import './App.css';
 
 class App extends Component {
   render() {
-    const id = `section${2}`;
     return (
       <div className="App">
-        <Section background="#e0fff7" name="home">
+        <Section class="section1" name="home">
           <Home />
         </Section>
         <Navagation/>
-        <Section background="#e0e0e0" name="about"></Section>
-        <Section background="#ffe8e0" name="skills"></Section>
-        <Section background="#D3FFB9" name="portfolio"></Section>
-        <Section background="#33373e" name="contact"></Section>
+        <Section class="section2" name="about"></Section>
+        <Section class="section3" name="skills"></Section>
+        <Section class="section4" name="portfolio"></Section>
+        <Section class="section5" name="contact"></Section>
       </div>
     );
   }
