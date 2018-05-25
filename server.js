@@ -17,6 +17,11 @@ app.use(routes);
 // // Connect to the Mongo DB
 // mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/starterDB');
 
+app.get('*', function (req, res) {
+  const index = path.join(__dirname, 'build', 'index.html');
+  res.sendFile(index);
+});
+
 // Start the API server
 app.listen(PORT, () => {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
