@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Navagation.css';
 import ScrollTo from 'react-scroll-into-view';
+import { SIGTERM } from 'constants';
 
 class Navagation extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Navagation extends React.Component {
         { selector: '#contact', text: 'Contact' },
       ],
     };
+    this.navbar = React.createRef();
     this.handleScroll = this.handleScroll.bind(this);
     this.handleResize = this.handleResize.bind(this);
   }
@@ -22,6 +24,9 @@ class Navagation extends React.Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
+
+    console.log(this.state.links[0].text);
+
   }
 
   componentWillUnmount() {
@@ -30,11 +35,27 @@ class Navagation extends React.Component {
 
   handleResize() {
     this.setState({ windowHeight: window.innerHeight });
+   // console.log('hello');
+
+    console.log(window);
+    this.state.links.forEach(function (item, index) {
+     console.log(item); // index
+    // item.setState({ midPoint: '1' });
+    item.midPoint = '1';
+   //   console.log(sandwich); // value
+    });
+
+
+
+  }
+
+  getLinkMidpoint() {
+    console.log(this.state.links);
   }
 
   handleScroll() {
     const vPos = window.innerHeight;
-    console.log(vPos);
+    // console.log(vPos);
 
     if (window.scrollY > this.state.windowHeight) {
       this.setState({
@@ -53,8 +74,8 @@ class Navagation extends React.Component {
         {this.props.children}
         <div id="navbar" ref={this.navbar}>
           <ul>
-            {this.state.links.map(link => (
-              <li>
+            {this.state.links.map((link) => (
+              <li ref={(node) => this.calcHeight(node)} > 
                 <ScrollTo selector={link.selector}>{link.text}</ScrollTo>
               </li>
             ))}
@@ -63,7 +84,17 @@ class Navagation extends React.Component {
       </nav>
     );
   }
+
+  calcHeight(node){
+    if (node) {
+        console.log("calcHeight", node.getBoundingClientRect());
+      }
+  }
+
+  
 }
+
+// onClick={this.changeContent.bind(this)}
 
 export default Navagation;
 

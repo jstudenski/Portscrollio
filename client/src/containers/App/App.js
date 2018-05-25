@@ -14,7 +14,7 @@ class App extends Component {
           <Home />
         </Section>
         <Navagation/>
-        <Section background="#ffffff" name="about"></Section>
+        <Section background="#e0e0e0" name="about"></Section>
         <Section background="#ffe8e0" name="skills"></Section>
         <Section background="#D3FFB9" name="portfolio"></Section>
         <Section background="#33373e" name="contact"></Section>
