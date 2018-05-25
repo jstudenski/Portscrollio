@@ -49,9 +49,8 @@ class Navagation extends React.Component {
   }
 
   handleScroll() {
-    const vPos = window.innerHeight;
+    // const vPos = window.innerHeight;
     // console.log(vPos);
-
     if (window.scrollY > this.state.windowHeight) {
       this.setState({
         scrollingLock: true,
@@ -63,15 +62,15 @@ class Navagation extends React.Component {
     }
   }
 
-  calcHeight(node, link) {
+  calculateMidpoint(node, link) {
     if (node) {
       // console.log("innerHeight", window.innerHeight);
       // console.log("offsetTop", node.offsetTop);
       // console.log("scrollTop", node.scrollTop);
       // console.log("scrollTop", node.scrollTop);
-      let midPoint =node.getBoundingClientRect().top + (node.getBoundingClientRect().height/2) + window.scrollY // window.scrollY // node.getBoundingClientRect().top + window.scrollY // + (node.getBoundingClientRect().height/2) - window.scrollY
+      let midPoint = node.getBoundingClientRect().top + (node.getBoundingClientRect().height/2) + window.scrollY;
       link.midPoint = midPoint
-      // console.log("calcHeight", node.getBoundingClientRect());
+
     }
   }
 
@@ -83,7 +82,7 @@ class Navagation extends React.Component {
         <div id="navbar" ref={this.navbar}>
           <ul>
             {this.state.links.map((link) => (
-              <li ref={(node) => this.calcHeight(node, link)} > 
+              <li ref={(node) => this.calculateMidpoint(node, link)} > 
                 <ScrollTo selector={link.selector}>{link.text} {link.midPoint}</ScrollTo>
               </li>
             ))}
