@@ -31,12 +31,12 @@ class Navagation extends React.Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleResize() {
-    this.setState({ windowHeight: window.innerHeight });
-  }
-
   getLinkMidpoint() {
     console.log(this.state.links);
+  }
+
+  handleResize() {
+    this.setState({ windowHeight: window.innerHeight });
   }
 
   handleScroll() {
@@ -65,17 +65,17 @@ class Navagation extends React.Component {
 
       const wh = this.state.windowHeight;
       switch (true) {
-        case (mp > wh * 4):
+        case (mp > wh * 4): // section 4
           link.color = '#fff';
           break;
-        case (mp > wh * 3):
+        case (mp > wh * 3): // section 3
           link.color = '#D027A5';
           break;
-        case (mp > wh * 2):
-          link.color = 'lime';
+        case (mp > wh * 2): // section 2
+          link.color = '#1232d8';
           break;
         default:
-          link.color = 'orange';
+          link.color = '#fff';
           break;
       }
 
