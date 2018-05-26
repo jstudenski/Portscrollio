@@ -24,7 +24,7 @@ class Navagation extends React.Component {
     window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
 
-    console.log(this.state.links[0].text);
+    // console.log(this.state.links[0].text);
   }
 
   componentWillUnmount() {
@@ -32,7 +32,7 @@ class Navagation extends React.Component {
   }
 
   getLinkMidpoint() {
-    console.log(this.state.links);
+   //  console.log(this.state.links);
   }
 
   handleResize() {
@@ -65,20 +65,20 @@ class Navagation extends React.Component {
 
       const wh = this.state.windowHeight;
       switch (true) {
-        case (mp > wh * 4): // section 4
-          link.color = '#fff';
+        case (mp > wh * 4):
+          link.class = 'sec5 nav-link';
+          link.text === 'Contact' ? link.class = 'active' : null;
           break;
-        case (mp > wh * 3): // section 3
-          link.color = '#D027A5';
+        case (mp > wh * 3):
+          link.class = 'sec4 nav-link';
           break;
-        case (mp > wh * 2): // section 2
-          link.color = '#1232d8';
+        case (mp > wh * 2):
+          link.class = 'sec3 nav-link';
           break;
         default:
-          link.color = '#fff';
+          link.class = 'sec2 nav-link';
           break;
       }
-
     }
   }
 
@@ -90,7 +90,7 @@ class Navagation extends React.Component {
         <div id="navbar" ref={this.navbar}>
           <ul>
             {this.state.links.map(link => (
-              <li ref={node => this.calculateMidpoint(node, link)} style={{ color: link.color }}>
+              <li ref={node => this.calculateMidpoint(node, link)} className={link.class} style={{ color: link.color }}>
                 <ScrollTo selector={link.selector}>{link.text}</ScrollTo>
               </li>
             ))}

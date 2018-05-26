@@ -9,6 +9,8 @@ section {
 
 .section2 {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); }
+  .section2.nav-link {
+    color: lime; }
 
 .section3 {
   background-color: #fcd1d1; }

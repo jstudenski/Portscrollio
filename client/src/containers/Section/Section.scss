@@ -13,6 +13,13 @@ section {
 .section2 {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   // background-color:#e0e0e0;
+ // link.color = '#1232d8';
+
+ &.nav-link {
+  color: lime;
+ }
+
+
 }
 
 .section3 {
