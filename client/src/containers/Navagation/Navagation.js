@@ -67,7 +67,7 @@ class Navagation extends React.Component {
       switch (true) {
         case (mp > wh * 4):
           link.class = 'sec5 nav-link';
-          link.text === 'Contact' ? link.class = 'active' : null;
+          link.text === 'Contact' ? link.class += 'active' : null;
           break;
         case (mp > wh * 3):
           link.class = 'sec4 nav-link';

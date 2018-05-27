@@ -31,6 +31,9 @@ nav {
     }
     &.sec5 { 
       color: #fff;
+      .active {
+        color: red;
+      }
     }
   }
 
