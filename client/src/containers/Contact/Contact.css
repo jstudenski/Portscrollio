@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
 * {
   margin: 0;
   padding: 0;
@@ -10,14 +9,6 @@
   -o-font-smoothing: antialiased;
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility; }
-
-body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 30px;
-  color: #777;
-  background: #0CF; }
 
 .container {
   max-width: 400px;
@@ -72,14 +63,14 @@ fieldset {
   cursor: pointer;
   width: 100%;
   border: none;
-  background: #0CF;
+  background: #95fbce;
   color: #FFF;
   margin: 0 0 5px;
   padding: 10px;
   font-size: 15px; }
 
 #contact button[type="submit"]:hover {
-  background: #09C;
+  background: #50F8AE;
   -webkit-transition: background 0.3s ease-in-out;
   -moz-transition: background 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out; }
