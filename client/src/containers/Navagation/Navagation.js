@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './Navagation.css';
 import ScrollTo from 'react-scroll-into-view';
+import './Navagation.css';
 
 class Navagation extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class Navagation extends React.Component {
   }
 
   getLinkMidpoint() {
-   //  console.log(this.state.links);
+    //  console.log(this.state.links);
   }
 
   handleResize() {
