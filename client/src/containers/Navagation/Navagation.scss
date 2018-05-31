@@ -11,6 +11,7 @@ nav {
   // width: 20vw;
   // height: 50vw;
   position: absolute;
+  background-color: salmon;
   li {
     // calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
     font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
@@ -46,4 +47,13 @@ nav {
     padding: 0;
     margin: 0;
   }
+}
+
+.content {
+  width: 72vw;
+  margin: 0 auto;
+  // margin-left: 10vw;
+  // margin-right: 10vw;
+  background-color: yellow;
+  height: 100vh;
 }
