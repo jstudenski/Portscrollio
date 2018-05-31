@@ -7,8 +7,9 @@ class Section extends Component {
   render() {
     return (
       <section className={this.props.class} id={this.props.name}>
-        {this.props.children}
-        <div className="content">111</div>
+        <div className="content">
+          {this.props.children}
+        </div>
       </section>
     );
   }

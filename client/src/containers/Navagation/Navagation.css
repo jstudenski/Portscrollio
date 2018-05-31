@@ -30,9 +30,3 @@ nav {
     list-style-type: none;
     padding: 0;
     margin: 0; }
-
-.content {
-  width: 72vw;
-  margin: 0 auto;
-  background-color: yellow;
-  height: 100vh; }
