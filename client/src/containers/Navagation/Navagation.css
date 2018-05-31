@@ -6,8 +6,7 @@ nav {
   cursor: pointer;
   margin-top: 4vh;
   margin-left: 4vw;
-  position: absolute;
-  background-color: salmon; }
+  position: absolute; }
   #navbar li {
     font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     line-height: calc(1.3em + (1.5 - 1.3) * ((100vw - 300px)/(1600 - 300)));
@@ -17,7 +16,7 @@ nav {
     #navbar li.sec1 {
       color: #fff; }
     #navbar li.sec2 {
-      color: #585858; }
+      color: #fff; }
     #navbar li.sec3 {
       color: #004cc9; }
     #navbar li.sec4 {

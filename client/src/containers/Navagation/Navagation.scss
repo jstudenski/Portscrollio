@@ -11,7 +11,7 @@ nav {
   // width: 20vw;
   // height: 50vw;
   position: absolute;
-  background-color: salmon;
+  // background-color: salmon;
   li {
     // calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
     font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
@@ -26,7 +26,7 @@ nav {
       color: #fff;
     }
     &.sec2 { 
-      color: #585858;
+      color: #fff;
     }
     &.sec3 { 
       color: #004cc9;

@@ -3,7 +3,7 @@
  // padding-top: calc(50vh - 25px) ;
   p {
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .bio {
@@ -11,5 +11,13 @@
     width: 50%;
     float: right;
     margin-top: 25%;
+    img {
+      width: 6vh;
+      float: right;
+      margin: 2vh 4vh 0 0;
+    }
+    .mini {
+      font-size: 15px;
+    }
   }
 }
