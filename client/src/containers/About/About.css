@@ -1,0 +1,9 @@
+.about p {
+  color: #fff;
+  font-size: 20px; }
+
+.about .bio {
+  margin: auto;
+  width: 50%;
+  float: right;
+  margin-top: 25%; }
