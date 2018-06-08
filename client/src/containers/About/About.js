@@ -3,14 +3,20 @@ import './About.css';
 import signature from '../../images/signature.svg';
 
 class About extends Component {
+
   render() {
+
+  
       return (
         <div className={'about'}>
           <div className={'bio'}>
             <p class="mini">Hello</p>
             <br /><br /><br />
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque, metus in finibus tempus, diam nunc mollis urna, eu pulvinar metus risus ut metus. Donec id diam nisi. Phasellus vitae commodo sem. Mauris libero odio, lacinia posuere viverra sit amet, dictum ac leo. Aliquam justo nisi, aliquet ac suscipit id, congue ut leo. Vestibulum a ipsum velit. Phasellus risus massa, tincidunt at justo vel, interdum lacinia tellus. Sed ac lorem at libero tincidunt pellentesque. Quisque vel nisi vitae erat ullamcorper placerat sed a ipsum. Ut tincidunt imperdiet rutrum. Aenean eu nisl non risus interdum imperdiet posuere vitae eros. Phasellus nec purus ut dolor lacinia mollis. Vivamus porta volutpat arcu, vitae bibendum lectus sollicitudin sed. Vivamus quam enim, placerat egestas augue nec, ultricies vehicula nisl. Suspendisse. </p>
-            <img src={signature} alt={"signature"}/>
+            <p>Hello, I’m Jeff Studenski and I’m an aspiring bilingual Full-stack Web Developer who currently works as a Conceptual Prototyper. My present role is all about streamlining and optimizing project efficiency, and I strive to leverage that skill in my web development career. And no matter what I’m taking on professionally, learning something new is always at the forefront of my mind, and innovation and ingenuity consistently drive me to greater heights.
+
+A native Minnesotan, the internet has been my life for as long as I can remember. My creative problem solving aptitude has also been a part of me since I was a kid. Naturally, this is why I gravitate towards web developing—it’s the perfect fusion between two things I love. Now, my sights are set on merging my technical, analytical, and problem­-solving expertise to transform ideas into cutting-edge production­-ready web applications.
+
+In addition to attending a six-month Coding Bootcamp program, I hold a B.F.A. in Graphic Design from the University of Minnesota.</p> <img src={signature} alt={"signature"}/>
           </div>
         </div>
       )
