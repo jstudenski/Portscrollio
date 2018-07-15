@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Hello.css';
 import API from '../../utils/API';
 
+
 class Hello extends Component {
   // state = {
   //   getSamples: [{
