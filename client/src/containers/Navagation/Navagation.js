@@ -34,17 +34,10 @@ class Navagation extends React.Component {
   }
 
   handleScroll() {
-    // const vPos = window.innerHeight;
-    // console.log(vPos);
-    if (window.scrollY > this.state.windowHeight) {
-      this.setState({
-        scrollingLock: true,
-      });
-    } else if (window.scrollY < this.state.windowHeight) {
-      this.setState({
-        scrollingLock: false,
-      });
-    }
+    // lock nav links to the window after the user scrolls past the first section
+    this.setState({
+      scrollingLock: (window.scrollY > this.state.windowHeight) !== false,
+    });
   }
 
   calculateMidpoint(node, link) {
@@ -55,6 +48,9 @@ class Navagation extends React.Component {
       // console.log("scrollTop", node.scrollTop);
       //  console.log(link);
 
+    //  link.setState(prevState => ({ quantity: prevState.quantity + 1}));
+
+      // Calculate Link Midpoint
       const mp = node.getBoundingClientRect().top +
                 (node.getBoundingClientRect().height / 2) +
                 window.scrollY;
@@ -99,7 +95,7 @@ class Navagation extends React.Component {
   //       break;
   //   }
 
-    
+
   // }
 
   render() {
@@ -115,7 +111,7 @@ class Navagation extends React.Component {
               <li
                 ref={node => this.calculateMidpoint(node, link)}
                 className={link.class}
-                //style={{ color: this.calculateColor(link) }}
+                // style={{ color: this.calculateColor(link) }}
                 // style={{ color: link.color }}
               >
                 <ScrollTo selector={link.selector}>{link.text}</ScrollTo>
