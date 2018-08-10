@@ -9,10 +9,10 @@ class Navagation extends React.Component {
       scrollingLock: false,
       windowHeight: window.innerHeight,
       links: [
-        { selector: '#about', text: 'About' },
-        { selector: '#skills', text: 'Skills' },
-        { selector: '#portfolio', text: 'Portfolio' },
-        { selector: '#contact', text: 'Contact' },
+        { key: 0, selector: '#about', text: 'About' },
+        { key: 1, selector: '#skills', text: 'Skills' },
+        { key: 2, selector: '#portfolio', text: 'Portfolio' },
+        { key: 3, selector: '#contact', text: 'Contact' },
       ],
     };
     this.navbar = React.createRef();
@@ -29,12 +29,13 @@ class Navagation extends React.Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
+  // update window height when resized
   handleResize() {
     this.setState({ windowHeight: window.innerHeight });
   }
 
+  // lock nav links to the window after the user scrolls past the first section
   handleScroll() {
-    // lock nav links to the window after the user scrolls past the first section
     this.setState({
       scrollingLock: (window.scrollY > this.state.windowHeight) !== false,
     });
@@ -42,32 +43,19 @@ class Navagation extends React.Component {
 
   calculateMidpoint(node, link) {
     if (node) {
-      // console.log("innerHeight", window.innerHeight);
-      // console.log("offsetTop", node.offsetTop);
-      // console.log("scrollTop", node.scrollTop);
-      // console.log("scrollTop", node.scrollTop);
-      //  console.log(link);
-
-    //  link.setState(prevState => ({ quantity: prevState.quantity + 1}));
-
+      const domRect = node.getBoundingClientRect();
       // Calculate Link Midpoint
-      const mp = node.getBoundingClientRect().top +
-                (node.getBoundingClientRect().height / 2) +
-                window.scrollY;
-
-      link.midPoint = mp;
-
-      const wh = this.state.windowHeight;
+      link.midPoint = domRect.top + (domRect.height / 2) + window.scrollY;
 
       // Add class to change link color:
       switch (true) {
-        case (mp > wh * 4):
+        case (link.midPoint > this.state.windowHeight * 4):
           link.class = 'sec5 nav-link';
           break;
-        case (mp > wh * 3):
+        case (link.midPoint > this.state.windowHeight * 3):
           link.class = 'sec4 nav-link';
           break;
-        case (mp > wh * 2):
+        case (link.midPoint > this.state.windowHeighth * 2):
           link.class = 'sec3 nav-link';
           break;
         default:
@@ -76,27 +64,6 @@ class Navagation extends React.Component {
       }
     }
   }
-
-  // calculateColor(link) {
-  //   console.log(link);
-  //   // console.log("HELLO WORLD");
-  //   switch (true) {
-  //     case (mp > wh * 4):
-  //     return 'salmon';
-  //       break;
-  //     case (mp > wh * 3):
-  //     return 'yellow';
-  //       break;
-  //     case (mp > wh * 2):
-  //     return 'red';
-  //       break;
-  //     default:
-  //     return 'lime';
-  //       break;
-  //   }
-
-
-  // }
 
   render() {
     return (
@@ -109,6 +76,7 @@ class Navagation extends React.Component {
           <ul>
             {this.state.links.map(link => (
               <li
+                key={link.key}
                 ref={node => this.calculateMidpoint(node, link)}
                 className={link.class}
                 // style={{ color: this.calculateColor(link) }}
