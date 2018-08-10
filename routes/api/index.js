@@ -1,7 +1,7 @@
-const router = require('express').Router();
+import sampleRoutes from './sample.route';
 
-const sampleRoutes = require('./sample.route');
+const router = require('express').Router();
 
 router.use('/samples', sampleRoutes);
 
-module.exports = router;
+export default router;

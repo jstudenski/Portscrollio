@@ -1,7 +1,8 @@
+import { findAll } from '../../controllers/sample.controller';
+
 const router = require('express').Router();
-const sampleController = require('../../controllers/sample.controller');
 
 router.route('/')
-  .get(sampleController.findAll);
+  .get(findAll);
 
-module.exports = router;
+export default router;
