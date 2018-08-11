@@ -18,6 +18,7 @@ class Navagation extends React.Component {
     this.navbar = React.createRef();
     this.handleScroll = this.handleScroll.bind(this);
     this.handleResize = this.handleResize.bind(this);
+  //  this.testing = this.testing.bind(this);
   }
 
   componentDidMount() {
@@ -55,7 +56,7 @@ class Navagation extends React.Component {
         case (link.midPoint > this.state.windowHeight * 3):
           link.class = 'sec4 nav-link';
           break;
-        case (link.midPoint > this.state.windowHeighth * 2):
+        case (link.midPoint > this.state.windowHeight * 2):
           link.class = 'sec3 nav-link';
           break;
         default:
@@ -64,6 +65,11 @@ class Navagation extends React.Component {
       }
     }
   }
+
+  // testing(node) {
+  //   console.log(node)
+  //   return 'yellow' // console.log(node);
+  // }
 
   render() {
     return (
@@ -79,6 +85,8 @@ class Navagation extends React.Component {
                 key={link.key}
                 ref={node => this.calculateMidpoint(node, link)}
                 className={link.class}
+               // style={{ backgroundColor: this.testing(this) }}
+                // name={() => this.testing()}
                 // style={{ color: this.calculateColor(link) }}
                 // style={{ color: link.color }}
               >
