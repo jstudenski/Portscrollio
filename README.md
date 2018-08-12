@@ -1,7 +1,9 @@
 # Portscrollio
 
+```
 yarn installDeps
 yarn start
+```
 
 http://localhost:3000/
 
