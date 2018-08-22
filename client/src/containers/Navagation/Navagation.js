@@ -9,7 +9,7 @@ class Navagation extends React.Component {
       scrollingLock: false,
       windowHeight: window.innerHeight,
       links: [
-        { key: 0, selector: '#about', text: 'About' },
+        { key: 0, selector: '#about', text: 'About', test:'0' },
         { key: 1, selector: '#skills', text: 'Skills' },
         { key: 2, selector: '#portfolio', text: 'Portfolio' },
         { key: 3, selector: '#contact', text: 'Contact' },
@@ -22,8 +22,15 @@ class Navagation extends React.Component {
   }
 
   componentDidMount() {
+    console.log('mount');
+    console.log(this.state.links[0].midPoint);
     window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
+  }
+
+  componentDidUpdate() {
+    console.log('updated');
+    console.log(this.state.links[0].midPoint);
   }
 
   componentWillUnmount() {
@@ -37,12 +44,20 @@ class Navagation extends React.Component {
 
   // lock nav links to the window after the user scrolls past the first section
   handleScroll() {
+    // console.log('handleScroll')
     this.setState({
       scrollingLock: (window.scrollY > this.state.windowHeight) !== false,
     });
   }
 
+  newSetMidpoint(){
+   //  console.log('new set midpoint')
+  }
+
   calculateMidpoint(node, link) {
+ //    console.log('calculateMidpoint');
+
+
     if (node) {
       const domRect = node.getBoundingClientRect();
       // Calculate Link Midpoint
@@ -64,6 +79,11 @@ class Navagation extends React.Component {
           break;
       }
     }
+
+    // this.setState(prevState => ({
+    //   links: [...prevState.links.class,'sec3 nav-link']
+    // }));
+
   }
 
   // testing(node) {
@@ -72,6 +92,9 @@ class Navagation extends React.Component {
   // }
 
   render() {
+    console.log('render');
+    console.log(this.state.links[0].midPoint);
+    // console.log(this.state.links[0]);
     return (
       <nav style={{ position: this.state.scrollingLock ? 'fixed' : 'relative' }}>
         {this.props.children}
