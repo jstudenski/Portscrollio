@@ -1,6 +1,7 @@
 import React from 'react';
 import ScrollTo from 'react-scroll-into-view';
 import './Navagation.css';
+import NavItem from './NavItem';
 
 class Navagation extends React.Component {
   constructor(props) {
@@ -55,7 +56,9 @@ class Navagation extends React.Component {
   }
 
   calculateMidpoint(node, link) {
- //    console.log('calculateMidpoint');
+
+
+    console.log('calculateMidpoint');
 
 
     if (node) {
@@ -102,19 +105,21 @@ class Navagation extends React.Component {
           id="navbar"
           ref={this.navbar}
         >
+        {/* <NavItem></NavItem> */}
           <ul>
             {this.state.links.map(link => (
-              <li
-                key={link.key}
-                ref={node => this.calculateMidpoint(node, link)}
-                className={link.class}
-               // style={{ backgroundColor: this.testing(this) }}
-                // name={() => this.testing()}
-                // style={{ color: this.calculateColor(link) }}
-                // style={{ color: link.color }}
-              >
-                <ScrollTo selector={link.selector}>{link.text}</ScrollTo>
-              </li>
+              <NavItem {...link} />
+              // <li
+              //   key={link.key}
+              //   ref={node => this.calculateMidpoint(node, link)}
+              //   className={link.class}
+              //  // style={{ backgroundColor: this.testing(this) }}
+              //   // name={() => this.testing()}
+              //   // style={{ color: this.calculateColor(link) }}
+              //   // style={{ color: link.color }}
+              // >
+              //   <ScrollTo selector={link.selector}>{link.text}</ScrollTo>
+              // </li>
             ))}
           </ul>
         </div>
