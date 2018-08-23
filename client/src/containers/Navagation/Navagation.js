@@ -23,15 +23,15 @@ class Navagation extends React.Component {
   }
 
   componentDidMount() {
-    console.log('mount');
-    console.log(this.state.links[0].midPoint);
+    // console.log('mount');
+    // console.log(this.state.links[0].midPoint);
     window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
   }
 
   componentDidUpdate() {
-    console.log('updated');
-    console.log(this.state.links[0].midPoint);
+    // console.log('updated');
+    // console.log(this.state.links[0].midPoint);
   }
 
   componentWillUnmount() {
@@ -58,7 +58,7 @@ class Navagation extends React.Component {
   calculateMidpoint(node, link) {
 
 
-    console.log('calculateMidpoint');
+    // console.log('calculateMidpoint');
 
 
     if (node) {
@@ -95,9 +95,9 @@ class Navagation extends React.Component {
   // }
 
   render() {
-    console.log('render');
-    console.log(this.state.links[0].midPoint);
-    // console.log(this.state.links[0]);
+    // console.log('render');
+    // console.log(this.state.links[0].midPoint);
+  //  console.log(this.state.windowHeight);
     return (
       <nav style={{ position: this.state.scrollingLock ? 'fixed' : 'relative' }}>
         {this.props.children}
@@ -108,7 +108,7 @@ class Navagation extends React.Component {
         {/* <NavItem></NavItem> */}
           <ul>
             {this.state.links.map(link => (
-              <NavItem {...link} />
+              <NavItem windowHeight={this.state.windowHeight} {...link} />
               // <li
               //   key={link.key}
               //   ref={node => this.calculateMidpoint(node, link)}

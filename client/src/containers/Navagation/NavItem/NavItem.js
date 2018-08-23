@@ -7,9 +7,9 @@ class NavItem extends React.Component {
     super(props);
     this.state = {
       counter: 0,
-
+      midPoint: 0,
     };
-    this.handleClick = this.handleClick.bind(this);
+    //this.handleClick = this.handleClick.bind(this);
   }
 
 
