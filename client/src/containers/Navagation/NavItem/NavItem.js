@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import ScrollTo from 'react-scroll-into-view';
 
 class NavItem extends React.Component {
@@ -7,7 +7,7 @@ class NavItem extends React.Component {
     super(props);
     this.state = {
       counter: 0,
-      midPoint: 0,
+      // midPoint: 0,
     };
     //this.handleClick = this.handleClick.bind(this);
   }
@@ -50,12 +50,12 @@ class NavItem extends React.Component {
   }
 }
 
-NavItem.propTypes = {
-  // title: PropTypes.string.isRequired,
-};
+// NavItem.propTypes = {
+//   // title: PropTypes.string.isRequired,
+// };
 
-NavItem.defaultProps = {
-  // title: 'Hello World',
-};
+// NavItem.defaultProps = {
+//   // title: 'Hello World',
+// };
 
 export default NavItem;
