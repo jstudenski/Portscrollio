@@ -44,7 +44,6 @@ class NavItem extends React.Component {
                 <ScrollTo selector={this.props.selector}>{this.props.text}</ScrollTo>
               </li>
 
-
       </div>
     )
   }
