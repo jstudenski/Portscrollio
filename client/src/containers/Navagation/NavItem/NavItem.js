@@ -30,7 +30,6 @@ class NavItem extends React.Component {
     return (
       <div>
         {/* <h1 onClick={this.handleClick}>Hello Navitem: {this.state.counter}</h1> */}
-
               <li
                 // key={this.props.key}
                // ref={node => this.calculateMidpoint(node, link)}
