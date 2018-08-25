@@ -20,7 +20,6 @@ class NavItem extends React.Component {
     // window.addEventListener('resize', this.handleResize);
   }
 
-
   handleClick() {
     this.setState(prevState => ({
       counter: prevState.counter + 1
