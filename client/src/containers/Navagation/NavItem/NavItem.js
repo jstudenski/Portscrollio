@@ -6,9 +6,8 @@ class NavItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0,
-      midpoint: 0,
       domRect: '',
+      color: '',
     };
     this.ref = React.createRef();
     this.handleScroll = this.handleScroll.bind(this);
@@ -16,100 +15,54 @@ class NavItem extends React.Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-  //  console.log(this.state.midPoint);
-    // this.midpoint(this.myRef);
-  //  console.log(this.midpoint.current)
-    this.state.node = this.ref.current;
-    //this.textInput.current.focusTextInput();
+    console.log('mount');
+    //this.handleScroll();
   }
 
-  // componentDidUpdate(){
-  //   console.log('updated');
-  // //  console.log(this.state.class);
-  //   this.handleScroll();
-  // }
+  componentDidUpdate(){
+      //  console.log('mount');
+    console.log('updated');
+    //  this.handleScroll();
+  //  console.log(this.state.class);
+  //  console.log(this.state.class);
 
+  }
 
 handleScroll(){
-    console.log('scroll');
-  // if(this.midpoint.current != undefined){
-    const node = this.ref.current;
-  //  console.log(node);
-    const domRect = node.getBoundingClientRect();
-    this.state.midPoint = domRect.top + (domRect.height / 2) + window.scrollY;
-  // }
+
+  console.log('handle');
+
+  const domRect = this.ref.current.getBoundingClientRect();
+  const midLine = domRect.top + (domRect.height / 2) + window.scrollY;
+
+  console.log(midLine);
+  let color = '0';
 
   switch (true) {
-    case (this.state.midPoint > this.props.windowHeight * 4):
-      //console.log('5');
-      this.state.class = '5';
+    case (midLine > this.props.windowHeight * 4):
+     color = '5';
       break;
-    case (this.state.midPoint > this.props.windowHeight * 3):
-    //  console.log('4');
-      this.state.class = '4';
+    case (midLine > this.props.windowHeight * 3):
+      color = '4';
       break;
-    case (this.state.midPoint > this.props.windowHeight * 2):
-    //  console.log('3');
-      this.state.class = '3';
+    case (midLine > this.props.windowHeight * 2):
+      color = '3';
       break;
     default:
-    //  console.log('2');
-      this.state.class = '2';
+      color = '2';
       break;
   }
 
+  this.setState({ color: color });
 }
-
-
-  //
-  // midpoint() {
-  //   const node = this.myRef.current;
-  //
-  //   console.log(node);
-  //
-  //     if (node) {
-  //       const domRect = node.getBoundingClientRect();
-  //
-  //       this.state.midPoint = domRect.top + (domRect.height / 2) + window.scrollY;
-  //
-  //       switch (true) {
-  //         case (this.state.midPoint > this.props.windowHeight * 4):
-  //           //console.log('5');
-  //           this.state.class = '5';
-  //           break;
-  //         case (this.state.midPoint > this.props.windowHeight * 3):
-  //         //  console.log('4');
-  //           this.state.class = '4';
-  //           break;
-  //         case (this.state.midPoint > this.props.windowHeight * 2):
-  //         //  console.log('3');
-  //           this.state.class = '3';
-  //           break;
-  //         default:
-  //         //  console.log('2');
-  //           this.state.class = '2';
-  //           break;
-  //       }
-  //
-  //     }
-  //
-  // }
-
 
   render() {
     return (
-
-
-          <li
-            ref={this.ref}
-        //  ref={node => this.midpoint(node)}
-            // style={{ color: link.color }}
-          >
-            <ScrollTo selector={this.props.selector}>
-              {this.props.text}{this.state.class}
-            </ScrollTo>
-          </li>
-
+      <li ref={this.ref} >
+        <ScrollTo selector={this.props.selector}>
+          {this.props.text}{this.state.color}
+        </ScrollTo>
+      </li>
     )
   }
 }
