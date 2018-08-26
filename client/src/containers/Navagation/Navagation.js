@@ -45,7 +45,6 @@ class Navagation extends React.Component {
 
   // lock nav links to the window after the user scrolls past the first section
   handleScroll() {
-    // console.log('handleScroll')
     this.setState({
       scrollingLock: (window.scrollY > this.state.windowHeight) !== false,
     });
@@ -130,4 +129,3 @@ class Navagation extends React.Component {
 
 
 export default Navagation;
-
