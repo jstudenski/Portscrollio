@@ -15,16 +15,9 @@ class NavItem extends React.Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    console.log('mount');
-    //this.handleScroll();
   }
 
   componentDidUpdate(){
-      //  console.log('mount');
-    console.log('updated');
-    //  this.handleScroll();
-  //  console.log(this.state.class);
-  //  console.log(this.state.class);
 
   }
 
@@ -32,20 +25,25 @@ handleScroll(){
 
   console.log('handle');
 
-  const domRect = this.ref.current.getBoundingClientRect();
-  const midLine = domRect.top + (domRect.height / 2) + window.scrollY;
 
-  console.log(midLine);
+
+  const domRect = this.ref.current.getBoundingClientRect();
+  //const midLine =
+  this.setState ({
+    midline: domRect.top + (domRect.height / 2) + window.scrollY
+  })
+    // console.log(domRect);
+  console.log(this.state.midline);
   let color = '0';
 
   switch (true) {
-    case (midLine > this.props.windowHeight * 4):
+    case (this.state.midline > this.props.windowHeight * 4):
      color = '5';
       break;
-    case (midLine > this.props.windowHeight * 3):
+    case (this.state.midline > this.props.windowHeight * 3):
       color = '4';
       break;
-    case (midLine > this.props.windowHeight * 2):
+    case (this.state.midline > this.props.windowHeight * 2):
       color = '3';
       break;
     default:
