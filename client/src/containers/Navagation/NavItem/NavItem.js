@@ -50,7 +50,6 @@ handleScroll(){
       color = '2';
       break;
   }
-
   this.setState({ color: color });
 }
 
