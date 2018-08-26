@@ -7,70 +7,57 @@ class NavItem extends React.Component {
     super(props);
     this.state = {
       counter: 0,
-      midpoint: 1,
+      midpoint: 0,
       domRect: '',
     };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
   }
-
-  refCallback = element => {
-    console.log('roll');
-
-    if (element) {
-      this.setState({ node: this.props.timeStamp});
-    }
-
-  };
-
-
 
   componentDidMount() {
-    console.log(this.props);
-  //  console.log(this.getBoundingClientRect());
-    // console.log(this.state.links[0].midPoint);
     window.addEventListener('scroll', this.handleScroll);
-    // window.addEventListener('resize', this.handleResize);
+  //  console.log(this.state.midPoint);
   }
 
+  midpoint(node) {
+      if (node) {
+        this.setState({
 
-handleScroll(){
-  console.log('*');
-}
+        });
+        const domRect = node.getBoundingClientRect();
+        this.state.midPoint = domRect.top + (domRect.height / 2) + window.scrollY;
 
-  handleClick() {
-    console.log(this.state);
-  // //   link.midPoint = domRect.top + (domRect.height / 2) + window.scrollY;
-  //   const domRect = node.getBoundingClientRect();
-  //   console.log(domRect.top);
-  //   console.log(domRect.height / 2);
-  //   console.log(window.scrollY);
+        switch (true) {
+          case (this.state.midPoint > this.props.windowHeight * 4):
+            //console.log('5');
+            this.state.class = '5';
+            break;
+          case (this.state.midPoint > this.props.windowHeight * 3):
+          //  console.log('4');
+            this.state.class = '4';
+            break;
+          case (this.state.midPoint > this.props.windowHeight * 2):
+          //  console.log('3');
+            this.state.class = '3';
+            break;
+          default:
+          //  console.log('2');
+            this.state.class = '2';
+            break;
+        }
 
-    // this.setState(prevState => ({
-    //   counter:
-    // }));
-
+      }
   }
+
 
   render() {
     return (
       <div>
-
           <li
-            onScroll={this.handleScroll}
-            ref={this.refCallback}
-            // onClick={this.handleClick}
-            //ref={node => this.midpoint(node)}
-            // key={this.props.key}
-           // ref={node => this.calculateMidpoint(node, link)}
-          //  className={this.props.class}
-           // style={{ backgroundColor: this.testing(this) }}
-            // name={() => this.testing()}
-            // style={{ color: this.calculateColor(link) }}
+            ref={node => this.midpoint(node)}
+
             // style={{ color: link.color }}
           >
             <ScrollTo selector={this.props.selector}>
-              {this.props.node}{this.props.text}{this.props.windowHeight}{this.state.node}
+              {this.props.text}{this.state.class}
             </ScrollTo>
           </li>
       </div>

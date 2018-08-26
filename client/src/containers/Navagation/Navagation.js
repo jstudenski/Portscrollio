@@ -105,18 +105,14 @@ class Navagation extends React.Component {
         {/* <NavItem></NavItem> */}
           <ul>
             {this.state.links.map(link => (
-              // <div
-              //   ref={node => this.calculateMidpoint(node, link)}
-              // >
+
               <NavItem
 
                 windowHeight={this.state.windowHeight}
                 {...link}
-                timeStamp={this.state.timeStamp}
-                //ref={node => this.calculateMidpoint(node, link)}
-              //  midpoint={this.state.midpoint}
+                // timeStamp={this.state.timeStamp}
               />
-            //  </div>
+
               // <li
               //   key={link.key}
               //   ref={node => this.calculateMidpoint(node, link)}
