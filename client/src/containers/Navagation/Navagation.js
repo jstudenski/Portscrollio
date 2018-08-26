@@ -7,10 +7,11 @@ class Navagation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      midpoint:5,
       scrollingLock: false,
       windowHeight: window.innerHeight,
       links: [
-        { key: 0, selector: '#about', text: 'About', test:'0' },
+        { key: 0, selector: '#about', text: 'About' },
         { key: 1, selector: '#skills', text: 'Skills' },
         { key: 2, selector: '#portfolio', text: 'Portfolio' },
         { key: 3, selector: '#contact', text: 'Contact' },
@@ -19,12 +20,9 @@ class Navagation extends React.Component {
     this.navbar = React.createRef();
     this.handleScroll = this.handleScroll.bind(this);
     this.handleResize = this.handleResize.bind(this);
-  //  this.testing = this.testing.bind(this);
   }
 
   componentDidMount() {
-    // console.log('mount');
-    // console.log(this.state.links[0].midPoint);
     window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
   }
@@ -44,9 +42,11 @@ class Navagation extends React.Component {
   }
 
   // lock nav links to the window after the user scrolls past the first section
-  handleScroll() {
+  handleScroll(node) {
+    //console.log(node)
     this.setState({
       scrollingLock: (window.scrollY > this.state.windowHeight) !== false,
+      timeStamp: node.timeStamp
     });
   }
 
@@ -55,36 +55,34 @@ class Navagation extends React.Component {
   }
 
   calculateMidpoint(node, link) {
-
-
-    // console.log('calculateMidpoint');
-
+    console.log('calculateMidpoint');
 
     if (node) {
-      const domRect = node.getBoundingClientRect();
-      // Calculate Link Midpoint
-      link.midPoint = domRect.top + (domRect.height / 2) + window.scrollY;
-
-      // Add class to change link color:
-      switch (true) {
-        case (link.midPoint > this.state.windowHeight * 4):
-          link.class = 'sec5 nav-link';
-          break;
-        case (link.midPoint > this.state.windowHeight * 3):
-          link.class = 'sec4 nav-link';
-          break;
-        case (link.midPoint > this.state.windowHeight * 2):
-          link.class = 'sec3 nav-link';
-          break;
-        default:
-          link.class = 'sec2 nav-link';
-          break;
-      }
+      console.log(node)
+      //
+      // const domRect = node.getBoundingClientRect();
+      // // Calculate Link Midpoint
+      // link.midPoint = domRect.top + (domRect.height / 2) + window.scrollY;
+      //
+      // // Add class to change link color:
+      // switch (true) {
+      //   case (link.midPoint > this.state.windowHeight * 4):
+      //     link.class = 'sec5 nav-link';
+      //     break;
+      //   case (link.midPoint > this.state.windowHeight * 3):
+      //     link.class = 'sec4 nav-link';
+      //     break;
+      //   case (link.midPoint > this.state.windowHeight * 2):
+      //     link.class = 'sec3 nav-link';
+      //     break;
+      //   default:
+      //     link.class = 'sec2 nav-link';
+      //     break;
+      // }
     }
 
-    // this.setState(prevState => ({
-    //   links: [...prevState.links.class,'sec3 nav-link']
-    // }));
+
+
 
   }
 
@@ -107,7 +105,18 @@ class Navagation extends React.Component {
         {/* <NavItem></NavItem> */}
           <ul>
             {this.state.links.map(link => (
-              <NavItem windowHeight={this.state.windowHeight} {...link} />
+              // <div
+              //   ref={node => this.calculateMidpoint(node, link)}
+              // >
+              <NavItem
+
+                windowHeight={this.state.windowHeight}
+                {...link}
+                timeStamp={this.state.timeStamp}
+                //ref={node => this.calculateMidpoint(node, link)}
+              //  midpoint={this.state.midpoint}
+              />
+            //  </div>
               // <li
               //   key={link.key}
               //   ref={node => this.calculateMidpoint(node, link)}
