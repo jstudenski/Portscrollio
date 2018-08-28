@@ -18,10 +18,7 @@ nav {
     line-height: calc(1.3em + (1.5 - 1.3) * ((100vw - 300px)/(1600 - 300)));
     text-decoration: none;
     font-weight: light;
-
-    // text-transform: uppercase;
     letter-spacing: 0.1rem;
-
     &.sec1 { color: salmon; }
     &.sec2 { color: lime; }
     &.sec3 { color: #004cc9; }
