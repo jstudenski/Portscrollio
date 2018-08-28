@@ -9,11 +9,11 @@ class NavItem extends React.Component {
       color: 1,
     };
     this.ref = React.createRef();
-    this.focusTextInput = () => {
+    this.calcMidline = () => {
       const DOMRect = this.ref.current.getBoundingClientRect();
       this.midline = DOMRect.top + (DOMRect.height / 2) + window.scrollY;
     };
-    this.handleScroll = this.handleScroll.bind(this);
+    this.getColor = this.getColor.bind(this);
   }
 
   componentDidMount() {
@@ -21,36 +21,32 @@ class NavItem extends React.Component {
   }
 
   componentDidUpdate() {
-      this.focusTextInput();
-      this.handleScroll()
+    this.calcMidline();
+    this.getColor();
   }
 
+  getColor() {
+    let color = '0';
 
-
-handleScroll() {
-
-  let color = '0';
-
-  switch (true) {
-    case (this.midline > this.props.windowHeight * 4):
-     color = '5';
-      break;
-    case (this.midline > this.props.windowHeight * 3):
-      color = '4';
-      break;
-    case (this.midline > this.props.windowHeight * 2):
-      color = '3';
-      break;
-    default:
-      color = '2';
-      break;
+    switch (true) {
+      case (this.midline > this.props.windowHeight * 4):
+        color = '5';
+        break;
+      case (this.midline > this.props.windowHeight * 3):
+        color = '4';
+        break;
+      case (this.midline > this.props.windowHeight * 2):
+        color = '3';
+        break;
+      default:
+        color = '2';
+        break;
+    }
+    // return color;
+    if (this.state.color != color) {
+      this.setState({ color });
+    }
   }
-  // return color;
-  if (this.state.color != color) {
-    this.setState({ color: color });
-  }
-
-}
 
   render() {
     return (
@@ -62,7 +58,7 @@ handleScroll() {
           </ScrollTo>
         </li>
       </div>
-    )
+    );
   }
 }
 
