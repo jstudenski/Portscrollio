@@ -12,9 +12,9 @@ class Navagation extends React.Component {
       windowHeight: window.innerHeight,
       links: [
         { key: 0, selector: '#about', text: 'About' },
-        { key: 1, selector: '#skills', text: 'Skills' },
-        { key: 2, selector: '#portfolio', text: 'Portfolio' },
-        { key: 3, selector: '#contact', text: 'Contact' },
+        // { key: 1, selector: '#skills', text: 'Skills' },
+        // { key: 2, selector: '#portfolio', text: 'Portfolio' },
+        // { key: 3, selector: '#contact', text: 'Contact' },
       ],
     };
     this.navbar = React.createRef();
