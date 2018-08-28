@@ -14,26 +14,28 @@ class NavItem extends React.Component {
   }
 
   componentDidMount() {
+
     window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentDidUpdate(){
 
   }
 
-handleScroll(){
+  componentDidUpdate() {
 
-  console.log('handle');
+  }
 
-
-
+findMidline(){
   const domRect = this.ref.current.getBoundingClientRect();
-  //const midLine =
   this.setState ({
-    midline: domRect.top + (domRect.height / 2) + window.scrollY
-  })
-    // console.log(domRect);
+    midline: domRect.top + (domRect.height / 2) + window.scrollY,
+  });
   console.log(this.state.midline);
+}
+
+handleScroll() {
+
+ // console.log('handle');
+ this.findMidline();
+
   let color = '0';
 
   switch (true) {
@@ -52,6 +54,12 @@ handleScroll(){
   }
   this.setState({ color: color });
 }
+
+setupToDraw = (canvas) => {
+  // ...
+  console.log('drew!');
+}
+
 
   render() {
     return (
