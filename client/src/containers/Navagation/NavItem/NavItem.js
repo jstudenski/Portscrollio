@@ -17,7 +17,7 @@ class NavItem extends React.Component {
   }
 
   componentDidMount() {
-
+    console.log(this.props)
   }
 
   componentDidUpdate() {

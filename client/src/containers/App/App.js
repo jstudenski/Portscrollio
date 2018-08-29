@@ -9,12 +9,19 @@ import './App.css';
 
 class App extends Component {
   render() {
+    const PAGES = [
+      { key: 0, selector: '#about', text: 'About' },
+      { key: 1, selector: '#skills', text: 'Skills' },
+      { key: 2, selector: '#portfolio', text: 'Portfolio' },
+      { key: 3, selector: '#contact', text: 'Contact' },
+    ]
+
     return (
       <div className="App">
         <Section class="section1" name="home">
           <Home />
         </Section>
-        <Navagation />
+        <Navagation pages={PAGES} />
         <Section class="section2" name="about">
           <About />
        </Section>

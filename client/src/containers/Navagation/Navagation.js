@@ -102,15 +102,13 @@ class Navagation extends React.Component {
           id="navbar"
           ref={this.navbar}
         >
-        {/* <NavItem></NavItem> */}
+
           <ul>
-            {this.state.links.map(link => (
+            {this.props.pages.map(page => (
 
               <NavItem
-
                 windowHeight={this.state.windowHeight}
-                {...link}
-                // timeStamp={this.state.timeStamp}
+                {...page}
               />
 
               // <li
