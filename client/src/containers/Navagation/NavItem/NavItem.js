@@ -6,55 +6,37 @@ class NavItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: 1,
+      color: 'white',
     };
     this.ref = React.createRef();
-    this.calcMidline = () => {
-      const DOMRect = this.ref.current.getBoundingClientRect();
-      this.midline = DOMRect.top + (DOMRect.height / 2) + window.scrollY;
-    };
-    this.getColor = this.getColor.bind(this);
-  }
-
-  componentDidMount() {
-    console.log(this.props)
   }
 
   componentDidUpdate() {
-    this.calcMidline();
-    this.getColor();
-  }
-
-  getColor() {
-    let color = '0';
-
-    switch (true) {
-      case (this.midline > this.props.windowHeight * 4):
-        color = '5';
-        break;
-      case (this.midline > this.props.windowHeight * 3):
-        color = '4';
-        break;
-      case (this.midline > this.props.windowHeight * 2):
-        color = '3';
-        break;
-      default:
-        color = '2';
-        break;
-    }
-    // return color;
-    if (this.state.color !== color) {
-      this.setState({ color });
+    // get the components current size and position
+    const DOMRect = this.ref.current.getBoundingClientRect();
+    // find the midline
+    const midline = DOMRect.top + (DOMRect.height / 2) + window.scrollY;
+    // pass the midline to parent function and return link color
+    const newColor = this.props.getLinkColor(midline);
+    // if the color is different, set it in the state
+    if (this.state.color !== newColor) {
+      this.setState({ color: newColor });
     }
   }
 
   render() {
+    const style = {
+      color: this.state.color,
+      margin: 0,
+      padding: 0,
+    };
     return (
       <div>
         <li ref={this.ref} >
           <ScrollTo selector={this.props.selector}>
-            {this.props.text}
-            {this.state.color}
+            <p style={style}>
+              {this.props.text}
+            </p>
           </ScrollTo>
         </li>
       </div>
@@ -63,7 +45,6 @@ class NavItem extends React.Component {
 }
 
 NavItem.propTypes = {
-  windowHeight: PropTypes.number.isRequired,
   selector: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };

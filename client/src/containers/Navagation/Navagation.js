@@ -10,12 +10,12 @@ class Navagation extends React.Component {
       midpoint:5,
       scrollingLock: false,
       windowHeight: window.innerHeight,
-      links: [
-        { key: 0, selector: '#about', text: 'About' },
-        { key: 1, selector: '#skills', text: 'Skills' },
-        { key: 2, selector: '#portfolio', text: 'Portfolio' },
-        { key: 3, selector: '#contact', text: 'Contact' },
-      ],
+      // links: [
+      //   { key: 0, selector: '#about', text: 'About' },
+      //   { key: 1, selector: '#skills', text: 'Skills' },
+      //   { key: 2, selector: '#portfolio', text: 'Portfolio' },
+      //   { key: 3, selector: '#contact', text: 'Contact' },
+      // ],
     };
     this.navbar = React.createRef();
     this.handleScroll = this.handleScroll.bind(this);
@@ -59,37 +59,20 @@ class Navagation extends React.Component {
 
     if (node) {
       console.log(node)
-      //
-      // const domRect = node.getBoundingClientRect();
-      // // Calculate Link Midpoint
-      // link.midPoint = domRect.top + (domRect.height / 2) + window.scrollY;
-      //
-      // // Add class to change link color:
-      // switch (true) {
-      //   case (link.midPoint > this.state.windowHeight * 4):
-      //     link.class = 'sec5 nav-link';
-      //     break;
-      //   case (link.midPoint > this.state.windowHeight * 3):
-      //     link.class = 'sec4 nav-link';
-      //     break;
-      //   case (link.midPoint > this.state.windowHeight * 2):
-      //     link.class = 'sec3 nav-link';
-      //     break;
-      //   default:
-      //     link.class = 'sec2 nav-link';
-      //     break;
-      // }
     }
-
-
 
 
   }
 
-  // testing(node) {
-  //   console.log(node)
-  //   return 'yellow' // console.log(node);
-  // }
+  getLinkColor = (midline) => {
+
+    if (midline) {
+      let calc = Math.floor(((midline - this.state.windowHeight) /  this.state.windowHeight ));
+      console.log(midline)
+       return this.props.pages[calc].linkColor
+    }
+
+  };
 
   render() {
     // console.log('render');
@@ -109,6 +92,7 @@ class Navagation extends React.Component {
               <NavItem
                 windowHeight={this.state.windowHeight}
                 {...page}
+                getLinkColor={this.getLinkColor}
               />
 
               // <li

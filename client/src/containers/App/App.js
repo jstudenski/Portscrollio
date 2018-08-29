@@ -10,10 +10,10 @@ import './App.css';
 class App extends Component {
   render() {
     const PAGES = [
-      { key: 0, selector: '#about', text: 'About' },
-      { key: 1, selector: '#skills', text: 'Skills' },
-      { key: 2, selector: '#portfolio', text: 'Portfolio' },
-      { key: 3, selector: '#contact', text: 'Contact' },
+      { key: 0, selector: '#about', text: 'About', linkColor: 'blue' },
+      { key: 1, selector: '#skills', text: 'Skills', linkColor: 'red'},
+      { key: 2, selector: '#portfolio', text: 'Portfolio', linkColor: 'orange'},
+      { key: 3, selector: '#contact', text: 'Contact', linkColor: 'yellow'},
     ]
 
     return (
