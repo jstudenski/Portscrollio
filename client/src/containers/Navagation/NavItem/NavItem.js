@@ -43,7 +43,7 @@ class NavItem extends React.Component {
         break;
     }
     // return color;
-    if (this.state.color != color) {
+    if (this.state.color !== color) {
       this.setState({ color });
     }
   }
@@ -64,12 +64,8 @@ class NavItem extends React.Component {
 
 NavItem.propTypes = {
   windowHeight: PropTypes.number.isRequired,
-  selector: stringStartsWith
-
+  selector: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
-
-// NavItem.defaultProps = {
-//   // title: 'Hello World',
-// };
 
 export default NavItem;
