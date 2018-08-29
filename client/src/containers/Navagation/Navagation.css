@@ -13,16 +13,6 @@ nav {
     text-decoration: none;
     font-weight: light;
     letter-spacing: 0.1rem; }
-    #navbar li.sec1 {
-      color: salmon; }
-    #navbar li.sec2 {
-      color: lime; }
-    #navbar li.sec3 {
-      color: #004cc9; }
-    #navbar li.sec4 {
-      color: #D027A5; }
-    #navbar li.sec5 {
-      color: aquamarine; }
   #navbar ul {
     list-style-type: none;
     padding: 0;
