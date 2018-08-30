@@ -12,25 +12,25 @@ class App extends Component {
     const PAGES = [
       {
         key: 0,
-        selector: '#about',
+        id: 'about',
         text: 'About', linkColor:'#0b64c0',
         background: 'salmon', component: <About />
       },
       {
         key: 1,
-        selector: '#skills',
+        id: 'skills',
         text: 'Skills', linkColor: '#ff4552',
         background: '#efe8d8'
       },
       {
         key: 2,
-        selector: '#portfolio',
+        id: 'portfolio',
         text: 'Portfolio', linkColor: '#28292b',
         background: '#76eedf'
       },
       {
         key: 3,
-        selector: '#contact',
+        id: 'contact',
         text: 'Contact',
         linkColor: '#e5e8dc',
         background: '#ff8fa4',
@@ -45,7 +45,7 @@ class App extends Component {
         </Section>
         <Navagation pages={PAGES} />
         {PAGES.map(page => (
-          <Section background={page.background}>
+          <Section background={page.background} id={page.id}>
             {page.component}
           </Section>
         ))}

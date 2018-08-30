@@ -28,7 +28,7 @@ class NavItem extends React.Component {
     return (
       <div>
         <li ref={this.ref} style={{ color: this.state.color }}>
-          <ScrollTo selector={this.props.selector}>
+          <ScrollTo selector={`#${this.props.id}`}>
             {this.props.text}
           </ScrollTo>
         </li>
