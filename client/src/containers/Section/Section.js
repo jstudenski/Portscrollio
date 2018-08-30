@@ -6,7 +6,7 @@ import ScrollTo from 'react-scroll-into-view';
 class Section extends Component {
   render() {
     return (
-      <section className={this.props.class} id={this.props.name}>
+      <section style={{ backgroundColor: this.props.background }} className={this.props.class}>
         <div className="content">
           {this.props.children}
         </div>
