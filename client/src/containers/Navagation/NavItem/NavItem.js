@@ -24,10 +24,29 @@ class NavItem extends React.Component {
     }
   }
 
+
   render() {
+
+    const style = {
+      color: this.state.color,
+      textDecoration: (this.state.color === this.props.linkColor) ? 'underline' : null,
+    };
+
+    // if (this.state.color === this.props.linkColor) {
+    //   style.borderBottom = '2px solid red';
+    //   style.display = 'inline-block';
+    //   style.lineHeight = 1;
+    // }
+
+    // this.state.color === this.props.linkColor)
+    // borderBottom: '2px solid red',
+    // display: 'inline-block',
+    // lineHeight: 1,
+
+
     return (
       <div>
-        <li ref={this.ref} style={{ color: this.state.color }}>
+        <li ref={this.ref} style={style}>
           <ScrollTo selector={`#${this.props.id}`}>
             {this.props.text}
           </ScrollTo>
