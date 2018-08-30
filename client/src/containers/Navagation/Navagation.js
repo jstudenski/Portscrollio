@@ -1,5 +1,4 @@
 import React from 'react';
-import ScrollTo from 'react-scroll-into-view';
 import './Navagation.css';
 import NavItem from './NavItem';
 

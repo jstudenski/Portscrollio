@@ -38,7 +38,7 @@ class NavItem extends React.Component {
 }
 
 NavItem.propTypes = {
-  selector: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
 
