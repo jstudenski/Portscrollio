@@ -2,21 +2,20 @@ import React from 'react';
 // import styles from './Contact.css';
 
 const Contact = () => (
-  <div className="container" style={{backgroundColor: 'pink'}}>
-  <div class="row">
-    <div className="col-6" style={{backgroundColor: 'rebeccapurple'}}>
+  <div className="container" style={{ backgroundColor: 'pink' }}>
+    <div className="row">
+      <div className="col-6" style={{ backgroundColor: 'rebeccapurple' }}>
       half
-    </div>
-    <div className="col-6" style={{backgroundColor: 'salmon'}}>
+      </div>
+      <div className="col-6" style={{ backgroundColor: 'salmon' }}>
       half
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div className="col-6" style={{backgroundColor: 'rebeccapurple'}}>
+    <div className="row">
+      <div className="col-6" style={{ backgroundColor: 'rebeccapurple' }}>
       half
+      </div>
     </div>
-  </div>
-
   </div>
   // <div className="container">
   //   <form id="contact" method="POST" action="https://formspree.io/jstudenski@gmail.com">
