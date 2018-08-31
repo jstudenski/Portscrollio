@@ -4,9 +4,3 @@ section {
   overflow: hidden; }
   section p {
     margin: 0; }
-
-.content {
-  width: 72vw;
-  margin: 0 auto;
-  background-color: #00000017;
-  height: 100vh; }
