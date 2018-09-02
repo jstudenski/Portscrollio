@@ -65,5 +65,4 @@ class Navagation extends React.Component {
   }
 }
 
-
 export default Navagation;
