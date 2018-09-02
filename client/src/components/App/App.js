@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Section from '../Section';
 import Navagation from '../Navagation';
-import Home from '../Home';
-import About from '../About';
-import Contact from '../Contact';
+import Home from '../Section/sections/Home';
+import About from '../Section/sections/About';
+import Contact from '../Section/sections/Contact';
 import './App.css';
 
 class App extends Component {

@@ -5,7 +5,7 @@ import 'typeface-roboto';
 import 'normalize.css';
 import './simple-grid.css';
 import registerServiceWorker from './registerServiceWorker';
-import App from './containers/App';
+import App from './components/App';
 import './index.css';
 import './normalize.css';
 
