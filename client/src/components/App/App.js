@@ -9,7 +9,7 @@ import './App.css';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
     };
   }
@@ -19,23 +19,23 @@ class App extends Component {
         key: 0,
         id: 'about',
         text: 'About',
-        linkColor:'#0b64c0',
+        linkColor: '#0b64c0',
         background: 'salmon',
-        component: <About />
+        component: <About />,
       },
       {
         key: 1,
         id: 'skills',
         text: 'Skills',
         linkColor: '#ff4552',
-        background: '#efe8d8'
+        background: '#efe8d8',
       },
       {
         key: 2,
         id: 'portfolio',
         text: 'Portfolio',
         linkColor: '#28292b',
-        background: '#76eedf'
+        background: '#76eedf',
       },
       {
         key: 3,
@@ -43,10 +43,10 @@ class App extends Component {
         text: 'Contact',
         linkColor: '#e5e8dc',
         background: '#ff8fa4',
-        component: <Contact />
+        component: <Contact />,
       },
     ];
- // http://www.vanschneider.com/colors
+    // http://www.vanschneider.com/colors
     return (
       <div className="App">
         <Section class="section1" name="home">
