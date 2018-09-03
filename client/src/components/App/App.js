@@ -8,24 +8,33 @@ import Contact from '../Section/sections/Contact';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    };
+  }
   render() {
     const PAGES = [
       {
         key: 0,
         id: 'about',
-        text: 'About', linkColor:'#0b64c0',
-        background: 'salmon', component: <About />
+        text: 'About',
+        linkColor:'#0b64c0',
+        background: 'salmon',
+        component: <About />
       },
       {
         key: 1,
         id: 'skills',
-        text: 'Skills', linkColor: '#ff4552',
+        text: 'Skills',
+        linkColor: '#ff4552',
         background: '#efe8d8'
       },
       {
         key: 2,
         id: 'portfolio',
-        text: 'Portfolio', linkColor: '#28292b',
+        text: 'Portfolio',
+        linkColor: '#28292b',
         background: '#76eedf'
       },
       {
@@ -36,7 +45,7 @@ class App extends Component {
         background: '#ff8fa4',
         component: <Contact />
       },
-    ]
+    ];
  // http://www.vanschneider.com/colors
     return (
       <div className="App">
