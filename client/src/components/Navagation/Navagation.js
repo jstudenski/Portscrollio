@@ -1,6 +1,7 @@
 import React from 'react';
 import './Navagation.css';
 import NavItem from './NavItem';
+import PropTypes from 'prop-types';
 
 class Navagation extends React.Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class Navagation extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <nav style={{ position: this.state.scrollingLock ? 'fixed' : 'relative' }}>
         {this.props.children}
@@ -64,5 +66,10 @@ class Navagation extends React.Component {
     );
   }
 }
+
+// Navagation.propTypes = {
+//   props: PropTypes.object
+// };
+
 
 export default Navagation;
