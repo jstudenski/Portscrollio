@@ -29,8 +29,8 @@ class NavItem extends React.Component {
 
     const style = {
       color: this.state.color,
-      borderLeft: (this.state.color === this.props.linkColor) ? '3px solid' : null,
-      paddingLeft: (this.state.color === this.props.linkColor) ? '10px' : null,
+      borderLeft: this.state.color === this.props.linkColor && '3px solid',
+      paddingLeft: this.state.color === this.props.linkColor && '10px',
     };
 
     // if (this.state.color === this.props.linkColor) {
