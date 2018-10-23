@@ -46,6 +46,7 @@ class App extends Component {
         component: <Contact />,
       },
     ];
+    
     // http://www.vanschneider.com/colors
     return (
       <div className="App">
