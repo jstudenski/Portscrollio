@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navagation.css';
-import NavItem from './NavItem';
+import NavItem from './nav-item';
 import PropTypes from 'prop-types';
 
 class Navagation extends React.Component {
@@ -16,8 +16,8 @@ class Navagation extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
@@ -31,33 +31,35 @@ class Navagation extends React.Component {
 
   // lock nav links to the window after the user scrolls past the first section
   handleScroll() {
+    const { windowHeight } = this.state
     this.setState({
-      scrollingLock: (window.scrollY > this.state.windowHeight) !== false,
+      scrollingLock: (window.scrollY > windowHeight) !== false,
     });
   }
 
   getLinkColor = (midline) => {
+    const { windowHeight } = this.state
     if (midline) {
-      let calc = Math.floor(((midline - this.state.windowHeight) /  this.state.windowHeight ));
+      let calc = Math.floor(((midline - windowHeight) / windowHeight ));
       // return the link color
       return this.props.pages[calc].linkColor
     }
   };
 
   render() {
-    console.log(this.props);
+    const { children } = this.props
+    const { scrollingLock, windowHeight } = this.state
+
     return (
-      <nav style={{ position: this.state.scrollingLock ? 'fixed' : 'relative' }}>
-        {this.props.children}
-        <div
-          id="navbar"
-        >
+      <nav style={{ position: scrollingLock ? 'fixed' : 'relative' }}>
+        {children}
+        <div id="navbar">
           <ul>
             {this.props.pages.map(page => (
               <NavItem
-                windowHeight={this.state.windowHeight}
-                {...page}
                 getLinkColor={this.getLinkColor}
+                windowHeight={windowHeight}
+                {...page}
               />
             ))}
           </ul>

@@ -16,37 +16,37 @@ class App extends Component {
   render() {
     const PAGES = [
       {
-        key: 0,
-        id: 'about',
-        text: 'About',
-        linkColor: '#0b64c0',
         background: 'salmon',
         component: <About />,
+        id: 'about',
+        key: 0,
+        linkColor: '#0b64c0',
+        text: 'About',
       },
       {
-        key: 1,
-        id: 'skills',
-        text: 'Skills',
-        linkColor: '#ff4552',
         background: '#efe8d8',
+        id: 'skills',
+        key: 1,
+        linkColor: '#ff4552',
+        text: 'Skills',
       },
       {
-        key: 2,
-        id: 'portfolio',
-        text: 'Portfolio',
-        linkColor: '#28292b',
         background: '#76eedf',
+        id: 'portfolio',
+        key: 2,
+        linkColor: '#28292b',
+        text: 'Portfolio',
       },
       {
-        key: 3,
-        id: 'contact',
-        text: 'Contact',
-        linkColor: '#e5e8dc',
         background: '#ff8fa4',
         component: <Contact />,
+        id: 'contact',
+        key: 3,
+        linkColor: '#e5e8dc',
+        text: 'Contact',
       },
     ];
-    
+
     // http://www.vanschneider.com/colors
     return (
       <div className="App">

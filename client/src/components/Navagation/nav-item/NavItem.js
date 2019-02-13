@@ -26,11 +26,12 @@ class NavItem extends React.Component {
 
 
   render() {
-
+    const { id, linkColor, text } = this.props;
+    const { color } = this.state;
     const style = {
-      color: this.state.color,
-      borderLeft: this.state.color === this.props.linkColor && '3px solid',
-      paddingLeft: this.state.color === this.props.linkColor && '10px',
+      color,
+      borderLeft: color === linkColor && '3px solid',
+      paddingLeft: color === linkColor && '10px',
     };
 
     // if (this.state.color === this.props.linkColor) {
@@ -48,8 +49,8 @@ class NavItem extends React.Component {
     return (
       <div>
         <li ref={this.ref} style={style}>
-          <ScrollTo selector={`#${this.props.id}`}>
-            {this.props.text}
+          <ScrollTo selector={`#${id}`}>
+            {text}
           </ScrollTo>
         </li>
       </div>
